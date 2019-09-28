@@ -95,6 +95,7 @@ colnames(student_score)<-c(1:100)
 
 ```{r}
 hist(score,breaks = 100)
+hist(score,breaks=10)
 ```
 
 
@@ -110,17 +111,19 @@ df<-data.frame(score,grade_student)
      
 ```
 
-4. Now using the colorbrewer package (RColorBrewer; http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3) design a pallette and assign it to the groups in your data on the histogram.
+4. Now using the colorbrewer package (RColorBrewer) design a pallette and assign it to the groups in your data on the histogram.
 
 ```{r}
 library(RColorBrewer)
 #Let's look at the available palettes in RColorBrewer
 
-#The top section of palettes are sequential, the middle section are qualitative, and the lower section are diverging.
+#The top section of palettes are sequential, the middle section are qualitative, and the lower section are diverging.r
 #Make RColorBrewer palette available to R and assign to your bins
 
 #Use named palette in histogram
-
+hist(score,c(-1,59,70,80,90,100),right=TRUE)
+graph<-hist(score,c(-1,59,70,80,90,100),right=TRUE)
+plot(graph,labels=c("F","D","C","B","A"),col=brewer.pal(5,"Blues"))
 ```
 
 
@@ -128,6 +131,9 @@ library(RColorBrewer)
 
 ```{r}
 #Make a vector of the colors from RColorBrewer
+color<-brewer.pal(4,"Reds")
+boxplot(score~grade_student,data=df,xlab="letter grade",ylab="score",main="score-interest",col=color)
+
 
 ```
 
