@@ -89,6 +89,8 @@ student<-list(score=score,interest=interest) #list
 #matrix
 student_score<-rbind(score,interest)
 colnames(student_score)<-c(1:100)
+#data frame
+df<-data.frame(score,interest)
 ```
 
 2. Using base R commands, draw a histogram of the scores. Change the breaks in your histogram until you think they best represent your data.
@@ -108,7 +110,9 @@ letters<-c("F","D",'C','B','A')
 grade<-table(cut(score,br,letters))
 grade_student<-cut(score,br,letters,order_result=TRUE)
 df<-data.frame(score,grade_student)
-     
+df     
+#cut score里面分类
+cut(score,break=5,labels="E","D","C","B","A")
 ```
 
 4. Now using the colorbrewer package (RColorBrewer) design a pallette and assign it to the groups in your data on the histogram.
@@ -134,35 +138,34 @@ plot(graph,labels=c("F","D","C","B","A"),col=brewer.pal(5,"Blues"))
 color<-brewer.pal(4,"Reds")
 boxplot(score~grade_student,data=df,xlab="letter grade",ylab="score",main="score-interest",col=color)
 
-
 ```
 
 
 6. Now simulate a new variable that describes the number of logins that students made to the educational game. They should vary from 1-25.
 
 ```{r}
-
+game<-sample(1:25,100,replace=TRUE)
 ```
 
 7. Plot the relationships between logins and scores. Give the plot a title and color the dots according to interest group.
 
 ```{r}
-
-
+plot(game,score,main="logins-scores",col=c("red","blue","green","yellow"))
 ```
 
 
 8. R contains several inbuilt data sets, one of these in called AirPassengers. Plot a line graph of the the airline passengers over time using this data set.
 
 ```{r}
-
+plot(type="l",AirPassengers)
 ```
 
 
 9. Using another inbuilt data set, iris, plot the relationships between all of the variables in the data set. Which of these relationships is it appropraiet to run a correlation on? 
 
 ```{r}
-
+#Sepal.Length & Sepal.Width & Petal.Length & Petal.Width these four factors
+plot(iris)
 ```
 
 10. Finally use the knitr function to generate an html document from your work. If you have time, try to change some of the output using different commands from the RMarkdown cheat sheet.
