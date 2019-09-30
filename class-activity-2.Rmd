@@ -69,7 +69,7 @@ boxplot(D4$total_enrollment ~ D4$DBN)
 #Use matrix notation to select columns 5,6, 21, 22, 23, 24
 D5 <- D2[,c(5,6, 21:24)]
 #Draw a matrix of plots for every combination of variables
-pair??s(D5)
+pairs(D5)
 ```
 # Exercise
 
@@ -111,8 +111,8 @@ grade<-table(cut(score,br,letters))
 grade_student<-cut(score,br,letters,order_result=TRUE)
 df<-data.frame(score,grade_student)
 df     
-#cut score里面分类
-cut(score,break=5,labels="E","D","C","B","A")
+#cut score (ranking students score)
+#cut(score,break=5,labels="E","D","C","B","A")
 ```
 
 4. Now using the colorbrewer package (RColorBrewer) design a pallette and assign it to the groups in your data on the histogram.
@@ -169,5 +169,6 @@ plot(iris)
 ```
 
 10. Finally use the knitr function to generate an html document from your work. If you have time, try to change some of the output using different commands from the RMarkdown cheat sheet.
-
+install.packages("knitr")
+#file:///Users/xinxin/Desktop/hudk4050/class%20activity%202/class-activity-2.html
 11. Commit, Push and Pull Request your work back to the main branch of the repository 
