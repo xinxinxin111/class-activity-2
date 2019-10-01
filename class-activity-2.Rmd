@@ -109,8 +109,8 @@ br<-c(-1,59,70,80,90,100)
 letters<-c("F","D",'C','B','A')
 grade<-table(cut(score,br,letters))
 grade_student<-cut(score,br,letters,order_result=TRUE)
-df<-data.frame(score,grade_student)
-df     
+df_interest<-data.frame(score,grade_student)
+     
 #cut score (ranking students score)
 #cut(score,break=5,labels="E","D","C","B","A")
 ```
